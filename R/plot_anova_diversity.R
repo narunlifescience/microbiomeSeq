@@ -44,6 +44,7 @@ plot_anova_diversity <- function(physeq, method, grouping_column,pValueCutoff=0.
   #perform anova of diversity measure between groups
   anova_res <- perform_anova(df,meta_table,grouping_column,pValueCutoff)
   df_pw <- anova_res$df_pw #get pairwise p-values
+  print (df_pw)
   write.csv(df_pw, file = outfile)
   #Draw the boxplots
   p<-ggplot(aes_string(x=grouping_column,y="value",color=grouping_column),data=df)
